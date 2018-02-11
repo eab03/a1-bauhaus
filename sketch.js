@@ -17,17 +17,18 @@ function setup() {
 
 function draw() {
     // color variables
-    let black = color(0, 0, 0);
-    let green = color(20, 83, 20);
     let red = color(255, 0, 0);
-    let white = color(235);
     let yellow = color("#ffff00");
-    let silver = color("#C0C0C0");
+    let green = color(20, 83, 20);
     let ltblue = color(198, 226, 227, 75);
+    let blue = color(0, 0, 255);
+
+    let white = color(235);
+    let silver = color("#C0C0C0");
     let dkgray = color(169, 169, 169);
     let gray = color(128, 128, 128);
-    let blue = color(0, 0, 255);
-    let customGray = color(25, 25, 25);
+    let customGray = color(25);
+    let black = color(0);
 
     // PAINTING
     // canvas
@@ -36,6 +37,7 @@ function draw() {
     rect(640, 50, 280, 280);
 
     // diamonds
+    // if hover near lamp pull, some of the diamonds will turn yellow
     var d = dist(mouseX, mouseY, circle1.x, circle1.y);
     if (d < circle1.radius + 15) {
         push();
@@ -57,7 +59,7 @@ function draw() {
         rect(0, 0, diamondWidth, diamondHeight);
         rect(220, -70, diamondWidth, diamondHeight);
         rect(200, -50, diamondWidth, diamondHeight);
-        rect(150, 150, diamondWidth, diamondHeight);
+        rect(157.5, 157.5, diamondWidth, diamondHeight);
         pop();
     }
 
@@ -85,30 +87,56 @@ function draw() {
     fill(28);
     quad(72, 758, 592, 758, 594, 768, 70, 768, 72, 758);
 
-    // card
+    // CARD ON TABLE
+    // white card
     fill(white);
     quad(430, 680, 520, 680, 540, 730, 410, 730, 430, 730);
 
-    // image on card
-    fill(black);
-    ellipse(460, 705, 60, 20);
-    triangle(485, 705, 510, 695, 510, 715);
+    // image of fish on the card
+    // if hover over the painting, the fish tail and eyes turn blue, red or yellow
+    if ((mouseX > 640) && (mouseX < 920) &&
+        (mouseY > 50) && (mouseY < 99)) {
+        fill(blue);
+        triangle(485, 705, 510, 695, 510, 715);
+        fill(black);
+        ellipse(460, 705, 60, 20);
+        fill(blue);
+        ellipse(445, 705, 3);
+    } else if ((mouseX > 640) && (mouseX < 920) &&
+        (mouseY > 100) && (mouseY < 199)) {
+        fill(red);
+        triangle(485, 705, 510, 695, 510, 715);
+        fill(black);
+        ellipse(460, 705, 60, 20);
+        fill(red);
+        ellipse(445, 705, 3);
+    } else if ((mouseX > 640) && (mouseX < 920) &&
+        (mouseY > 200) && (mouseY < 280)) {
+        fill(yellow);
+        triangle(485, 705, 510, 695, 510, 715);
+        fill(black);
+        ellipse(460, 705, 60, 20);
+        fill(yellow);
+        ellipse(445, 705, 3);
+    } else {
+        fill(black);
+        triangle(485, 705, 510, 695, 510, 715);
+        fill(black);
+        ellipse(460, 705, 60, 20);
+        fill(red);
+        ellipse(445, 705, 3);
+    }
 
-    fill(red);
-    ellipse(445, 705, 3);
-
-    // image on card
+    // if hover over the card, one diamond in the painting turns blue
     if ((mouseX > 430) && (mouseX < 540) &&
         (mouseY > 680) && (mouseY < 730)) {
-
         push();
         fill(blue);
         translate(680, 70);
         rotate(45, 45);
         rect(200, -50, diamondWidth, diamondHeight);
         pop();
-    }   else {
-    }
+    } else {}
 
     // LAMP
     // base
@@ -145,6 +173,8 @@ function draw() {
     fill(dkgray);
     arc(276, 430, 225, 250, 180, 180, 180, CHORD);
 
+    // if hover near the lamp pull, the top portion of the lamp shade turns yellow
+    // as noted earlier, some of the diamonds in the painting will also turn yellow
     var d = dist(mouseX, mouseY, circle1.x, circle1.y);
     if (d < circle1.radius + 15) {
         fill(yellow);
@@ -154,7 +184,7 @@ function draw() {
         arc(276, 415, 225, 250, 180, 180, 180, OPEN);
     }
 
-    // pull
+    // lamp pull
     fill(silver);
     ellipse(307, 460, 15, 20);
 
@@ -168,18 +198,17 @@ function draw() {
 
     ellipse(circle1.x, circle1.y, circle1.radius);
 
-}
+} // close function draw
 
-// move the mouse near the lamp pull or card to change the background color
+// move the mouse near/away from the lamp pull or card to change the background color
 function mouseMoved() {
     var d = dist(mouseX, mouseY, circle1.x, circle1.y);
     if (d < circle1.radius + 15) {
         background(0);
         noStroke();
-    }
-    else if ((mouseX > 430) && (mouseX < 540) &&
+    } else if ((mouseX > 430) && (mouseX < 540) &&
         (mouseY > 680) && (mouseY < 730)) {
         background(150);
     }
     ellipse(circle1.x, circle1.y, circle1.radius);
-}
+} // close function mouseMoved
