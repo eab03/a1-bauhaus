@@ -94,39 +94,42 @@ function draw() {
     fill(white);
     quad(430, 680, 520, 680, 540, 730, 410, 730, 430, 730);
 
+    fill(black);
+    triangle(485, 705, 510, 695, 510, 715);
+    fill(black);
+    ellipse(460, 705, 60, 20);
+    fill(red);
+    ellipse(445, 705, 3);
+
     // image of fish on the card
-    // if hover over the painting, the fish tail and eyes turn blue, red or yellow
+    // if hover over the painting, the fish eyes on the card turns yellow or blue
+    // if hover near middle fish on painting, the other fish eyes turn yellow or blue
+
     if ((mouseX > 640) && (mouseX < 920) &&
-        (mouseY > 50) && (mouseY < 99)) {
-        fill(blue);
-        triangle(485, 705, 510, 695, 510, 715);
-        fill(black);
-        ellipse(460, 705, 60, 20);
-        fill(blue);
+        (mouseY > 50) && (mouseY < 139)) {
+        fill(blue); // top fish in painting
+        ellipse(800, 115, 5);
+
+        fill(blue); // fish on card
         ellipse(445, 705, 3);
     } else if ((mouseX > 640) && (mouseX < 920) &&
-        (mouseY > 100) && (mouseY < 199)) {
-        fill(red);
-        triangle(485, 705, 510, 695, 510, 715);
-        fill(black);
-        ellipse(460, 705, 60, 20);
-        fill(red);
-        ellipse(445, 705, 3);
+        (mouseY > 140) && (mouseY < 214)) {
+        fill(blue); // top fish in painting
+        ellipse(800, 115, 5);
+
+        fill(red); // middle fish in painting
+        ellipse(700, 185, 5);
+
+        fill(yellow); // bottom fish in painting
+        ellipse(800, 265, 5);
     } else if ((mouseX > 640) && (mouseX < 920) &&
-        (mouseY > 200) && (mouseY < 280)) {
-        fill(yellow);
-        triangle(485, 705, 510, 695, 510, 715);
-        fill(black);
-        ellipse(460, 705, 60, 20);
-        fill(yellow);
+        (mouseY > 215) && (mouseY < 290)) {
+        fill(yellow); // bottom fish in painting
+        ellipse(800, 265, 5);
+
+        fill(yellow); // fish on card
         ellipse(445, 705, 3);
-    } else {
-        fill(black);
-        triangle(485, 705, 510, 695, 510, 715);
-        fill(black);
-        ellipse(460, 705, 60, 20);
-        fill(red);
-        ellipse(445, 705, 3);
+    } else { // otherwise nothing changes
     }
 
     // if hover over the card, one diamond in the painting turns blue
@@ -138,6 +141,8 @@ function draw() {
         rotate(45, 45);
         rect(200, -50, diamondWidth, diamondHeight);
         pop();
+        fill(yellow);
+        ellipse(700, 185, 5); // middle
     } else {}
 
     // LAMP
@@ -156,9 +161,9 @@ function draw() {
     rect(256.5, 425, 40, 250, 4);
 
     fill(silver);
-    rect(272, 430, 10, 230); // bottom
-    rect(256.5, 655, 40, 20); // top
-    rect(256.5, 425, 40, 70);
+    rect(272, 430, 10, 230); // middle
+    rect(256.5, 650, 40, 25); // bottom
+    rect(256.5, 425, 40, 70); // top
     rect(252, 430, 48, 45);
 
     // decoration at top of body
@@ -178,7 +183,7 @@ function draw() {
     // if hover near the lamp pull, the top portion of the lamp shade turns yellow
     // as noted earlier, some of the diamonds in the painting will also turn yellow
     var d = dist(mouseX, mouseY, circle1.x, circle1.y);
-    if (d < circle1.radius + 15) {
+    if (d < circle1.radius + 25) {
         fill(yellow);
         arc(276, 415, 225, 250, 180, 180, 180, OPEN);
     } else {
@@ -187,30 +192,42 @@ function draw() {
     }
 
     // lamp pull
+    stroke(gray);
+    strokeWeight(.5);
     fill(silver);
     ellipse(307, 460, 15, 20);
 
     fill(gray);
     ellipse(307, 460, 5, 10);
 
+    stroke(gray);
     strokeWeight(2);
     line(316, 465, 315, 560); // main line
     strokeWeight(3);
     line(308, 459, 315, 464); // smaller line
 
+    strokeWeight(.5);
+    fill(dkgray);
     ellipse(circle1.x, circle1.y, circle1.radius);
 
 } // close function draw
 
-// move the mouse near/away from the lamp pull or card to change the background color
+// move the mouse near/away from the lamp pull to change the background color to black
 function mouseMoved() {
     var d = dist(mouseX, mouseY, circle1.x, circle1.y);
     if (d < circle1.radius + 15) {
         background(0);
         noStroke();
-    } else if ((mouseX > 430) && (mouseX < 540) &&
-        (mouseY > 680) && (mouseY < 730)) {
-        background(150);
     }
     ellipse(circle1.x, circle1.y, circle1.radius);
 } // close function mouseMoved
+
+// click on card to change the background color back to light gray
+function mouseClicked() {
+    if ((mouseX > 430) && (mouseX < 540) &&
+        (mouseY > 680) && (mouseY < 730) && background(0)) {
+        background(150);
+    } else {
+        background(0, 0, 255, 85);
+    }
+} // close function mouseClicked
