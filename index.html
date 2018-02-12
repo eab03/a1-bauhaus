@@ -1,14 +1,67 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
+    <meta charset="utf-8">
     <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
-    <style> body {padding: 0; margin: 0;} </style>
+    <style>
+        body {
+            margin: 0;
+            background-color: red;
+            font-family: 'Comfortaa', cursive;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        #image {
+            position: fixed;
+            top: 500px;
+            left: 1150px;
+        }
+
+        header {
+            height: 150px;
+            background-color: black;
+            color: white;
+            font-style: bold;
+            font-family: 'Comfortaa', cursive;
+            padding: 5px 15px 15px 35px;
+        }
+
+        div#container {
+            float: left;
+        }
+
+        /*div#description {
+            font-size: 75%;
+            margin-top: 52px;
+            margin-right: 30px;
+            float: right;
+            background-color: grey;
+            padding: 10px;
+        }*/
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Open+Sans" rel="stylesheet">
+
     <script src="libraries/p5.min.js"></script>
-    <script src="libraries/p5.dom.min.js"></script>
     <script src="libraries/p5.sound.min.js"></script>
     <script src="sketch.js"></script>
-  </head>
-  <body>
-      <img src="/images/lamp.jpg" alt="lamp" height="30%" width="30%">
-  </body>
+    <script language="javascript" type="text/javascript" src="libraries/p5.dom.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Liz Bright</h1>
+        <h2>Creative Exploration on the Web<h2>
+        <h3>February 2018</h3>
+    </header>
+
+    <div id='container'>
+    </div>
+    <div id='description'>
+    </div>
+    <div id='image'>
+        <img src="/images/lamp.jpg" alt="lamp" height="75%" width="75%">
+    </div>
+</body>
+
 </html>

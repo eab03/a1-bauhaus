@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+    background-color: blue;
+}
+#image {
+    position: fixed;
+    top: 500px;
+    left: 1150px;
+}
+div#description {
+    float: right;
+    margin-right: 175px;
+}

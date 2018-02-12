@@ -10,7 +10,9 @@ let diamondWidth = 15;
 let diamondHeight = 15;
 
 function setup() {
-    createCanvas(1024, 768);
+    let canvas = createCanvas(1024, 768);
+    canvas.position(25, 200);
+    canvas.parent('container');
     background(150);
     angleMode(DEGREES);
 }
