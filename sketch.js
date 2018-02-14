@@ -5,9 +5,24 @@ let circle1 = {
     radius: 10
 };
 
+let triangle2 = { // middle fish
+    x1: 762.5,
+    x2: 785,
+    x3: 785
+};
+
+let ellipse2 = { // middle fish
+    x: 725
+}
+
+let ellipseSm2 = { // middle fish
+    x: 700
+}
+
 // painting: width and height of diamonds
 let diamondWidth = 15;
 let diamondHeight = 15;
+
 
 function setup() {
     let canvas = createCanvas(1024, 768);
@@ -32,28 +47,68 @@ function draw() {
     let customGray = color(25);
     let black = color(0);
 
-    // PAINTING
-    // canvas
-    noStroke();
-    fill(green);
-    rect(640, 50, 280, 280);
 
-    // diamonds
-    // if hover near lamp pull, some of the diamonds will turn yellow
+    // PAINTING
+    /*
+     /  if hover near lamp pull, a few diamonds will turn yellow and fish
+        will move across page and be redrawn in light grey
+     /  otherwise, fish will be draw in black against a green background
+    */
     var d = dist(mouseX, mouseY, circle1.x, circle1.y);
     if (d < circle1.radius + 15) {
+        // diamonds
+        background(black);
         push();
-        fill(yellow);
         translate(680, 70);
         rotate(45, 45);
+        fill(yellow);
         rect(0, 0, diamondWidth, diamondHeight);
+        fill(blue);
         rect(220, -70, diamondWidth, diamondHeight);
         fill(red);
         rect(200, -50, diamondWidth, diamondHeight);
         fill(yellow);
         rect(150, 150, diamondWidth, diamondHeight);
         pop();
+
+        // fish swimming across page
+        fill(blue);
+        triangle(triangle2.x1, 185, triangle2.x2, 170, triangle2.x3, 200);  // middle fish
+        triangle2.x1 -= 4;
+        triangle2.x2 -= 4;
+        triangle2.x3 -= 4;
+        ellipse(ellipse2.x, 185, 80, 30);
+        ellipse2.x -= 4;
+
+        // eye of fish
+        fill(red);
+        ellipse(ellipseSm2.x, 185, 5); // middle fish
+        ellipseSm2.x -= 4;
+
+        // shadows of fish redrawn in painting
+        fill(gray);
+        // ellipse(825, 115, 80, 30); //top fish
+        // triangle(862.5, 115, 885, 100, 885, 130);
+
+        ellipse(725, 185, 80, 30); // middle fish
+        triangle(762.5, 185, 785, 170, 785, 200);
+
+        // ellipse(825, 265, 80, 30); // bottom fish
+        // triangle(862.5, 265, 885, 250, 885, 280);
+
+        // eyes of fish
+        fill(red);
+        // ellipse(800, 115, 5); // top fish
+        ellipse(700, 185, 5); // middle fish
+        // ellipse(800, 265, 5); // bottom fish
+
     } else {
+        // canvas
+        noStroke();
+        fill(green);
+        rect(640, 50, 280, 280);
+
+        // diamonds
         push();
         fill(red);
         translate(680, 70);
@@ -63,27 +118,29 @@ function draw() {
         rect(200, -50, diamondWidth, diamondHeight);
         rect(157.5, 157.5, diamondWidth, diamondHeight);
         pop();
+
+        // fish redrawn on canvas
+        fill(black);
+        ellipse(825, 115, 80, 30); //top fish
+        triangle(862.5, 115, 885, 100, 885, 130);
+
+        ellipse(725, 185, 80, 30); // middle fish
+        triangle(762.5, 185, 785, 170, 785, 200);
+
+        ellipse(825, 265, 80, 30); // bottom fish
+        triangle(862.5, 265, 885, 250, 885, 280);
+
+        // eyes of fish
+        fill(red);
+        ellipse(800, 115, 5); // top fish
+        ellipse(700, 185, 5); // middle fish
+        ellipse(800, 265, 5); // bottom fish
     }
 
-    // fish
-    fill(customGray);
-    ellipse(825, 115, 80, 30); //top
-    triangle(862.5, 115, 885, 100, 885, 130);
-
-    ellipse(725, 185, 80, 30);
-    triangle(762.5, 185, 785, 170, 785, 200); // middle
-
-    ellipse(825, 265, 80, 30);
-    triangle(862.5, 265, 885, 250, 885, 280); // bottom
-
-    // eyes of fish
-    fill(red);
-    ellipse(800, 115, 5); // top
-    ellipse(700, 185, 5); // middle
-    ellipse(800, 265, 5); // bottom
 
     // TABLE
     // table top
+    noStroke();
     fill(50);
     quad(120, 600, 554, 600, 594, 764, 70, 764, 120, 600);
     fill(28);
@@ -100,6 +157,7 @@ function draw() {
     ellipse(460, 705, 60, 20);
     fill(red);
     ellipse(445, 705, 3);
+
 
     // image of fish on the card
     // if hover over the painting, the fish eyes on the card turns yellow or blue
@@ -183,7 +241,7 @@ function draw() {
     // if hover near the lamp pull, the top portion of the lamp shade turns yellow
     // as noted earlier, some of the diamonds in the painting will also turn yellow
     var d = dist(mouseX, mouseY, circle1.x, circle1.y);
-    if (d < circle1.radius + 25) {
+    if (d < circle1.radius + 15) {
         fill(yellow);
         arc(276, 415, 225, 250, 180, 180, 180, OPEN);
     } else {
@@ -202,9 +260,12 @@ function draw() {
 
     stroke(gray);
     strokeWeight(2);
-    line(316, 465, 315, 560); // main line
-    strokeWeight(3);
-    line(308, 459, 315, 464); // smaller line
+    beginShape(LINES);
+    vertex(308, 459);
+    vertex(315, 465);
+    vertex(316, 465);
+    vertex(315, 560);
+    endShape();
 
     strokeWeight(.5);
     fill(dkgray);
@@ -212,21 +273,37 @@ function draw() {
 
 } // close function draw
 
-// move the mouse near/away from the lamp pull to change the background color to black
-function mouseMoved() {
-    var d = dist(mouseX, mouseY, circle1.x, circle1.y);
-    if (d < circle1.radius + 15) {
-        background(0);
-        noStroke();
-    }
-    ellipse(circle1.x, circle1.y, circle1.radius);
-} // close function mouseMoved
+// // move the mouse near/away from the lamp pull to change the background color to black
+// function mouseMoved() {
+//     var d = dist(mouseX, mouseY, circle1.x, circle1.y);
+//     if (d < circle1.radius + 15) {
+//         background(0);
+//         noStroke();
+//     }
+//     ellipse(circle1.x, circle1.y, circle1.radius);
+// } // close function mouseMoved
 
 // click on card to change the background color back to light gray
 function mouseClicked() {
     if ((mouseX > 430) && (mouseX < 540) &&
-        (mouseY > 680) && (mouseY < 730) && background(0)) {
+        (mouseY > 680) && (mouseY < 730)) {
         background(150);
+
+        fill(black);
+        ellipse(825, 115, 80, 30); //top
+        triangle(862.5, 115, 885, 100, 885, 130);
+
+        ellipse(725, 185, 80, 30);
+        triangle(762.5, 185, 785, 170, 785, 200); // middle
+
+        ellipse(825, 265, 80, 30);
+        triangle(862.5, 265, 885, 250, 885, 280); // bottom
+
+        // eyes of fish
+        fill(red);
+        ellipse(800, 115, 5); // top
+        ellipse(700, 185, 5); // middle
+        ellipse(800, 265, 5); // bottom
     } else {
         background(0, 0, 255, 85);
     }
