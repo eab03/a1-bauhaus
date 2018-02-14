@@ -1,3 +1,5 @@
+// First assignment for Creative Explorations on the Web
+
 // lamp: circular pull
 let circle1 = {
     x: 315,
@@ -5,17 +7,18 @@ let circle1 = {
     radius: 10
 };
 
-let triangle2 = { // middle fish
+// middle fish on 'painting'
+let triangle2 = { // tail
     x1: 762.5,
     x2: 785,
     x3: 785
 };
 
-let ellipse2 = { // middle fish
+let ellipse2 = { // body
     x: 725
 }
 
-let ellipseSm2 = { // middle fish
+let ellipseSm2 = { // eye
     x: 700
 }
 
@@ -58,8 +61,8 @@ function draw() {
     // LAMP
     // base
     fill(ltblue);
-    ellipse(276, 685, 200, 90);
-    ellipse(276, 678, 200, 74);
+    ellipse(273, 685, 200, 90);
+    ellipse(273, 678, 190, 72);
 
     ellipse(276, 673, 75, 35);
     ellipse(276, 670, 75, 25);
@@ -104,11 +107,11 @@ function draw() {
     endShape();
 
     strokeWeight(.5);
-    fill(dkgray);
+    fill(red);
     ellipse(circle1.x, circle1.y, circle1.radius);
 
 
-    // PAINTING
+    // PAINTING - Upper Right Corner
     /*
      /  if hover near lamp pull, the entire background will turn black,
      /  a few diamonds will turn yellow, one fish will move across page and
@@ -151,12 +154,32 @@ function draw() {
         fill(red); // eye
         ellipse(700, 185, 5);
 
-        // lamp shade
-        stroke(silver);
-        fill(dkgray);
-        arc(276, 430, 225, 250, 180, 180, 180, CHORD);
+        // parts of lamp
         fill(yellow);
         arc(276, 415, 225, 250, 180, 180, 180, OPEN);
+        fill(red); // pull
+        ellipse(circle1.x, circle1.y, circle1.radius);
+
+        noStroke(); // base
+        fill(green);
+        ellipse(273, 685, 200, 90);
+        fill(black);
+        ellipse(273, 678, 200, 80);
+
+        fill(blue); // body
+        rect(272, 430, 10, 230);
+
+        // card on table
+        fill(gray); // card
+        quad(430, 680, 520, 680, 540, 730, 410, 730, 430, 730);
+
+        noStroke();
+        fill(black); // image of fish
+        triangle(460, 705, 435, 695, 435, 715);
+        fill(black);
+        ellipse(485, 705, 60, 20);
+        fill(red);
+        ellipse(500, 705, 3);
 
     } else {
         // canvas
@@ -197,20 +220,19 @@ function draw() {
         arc(276, 430, 225, 250, 180, 180, 180, CHORD);
         fill(white);
         arc(276, 415, 225, 250, 180, 180, 180, OPEN);
+
+        // card on table
+        fill(white); // card
+        quad(430, 680, 520, 680, 540, 730, 410, 730, 430, 730);
+
+        noStroke();
+        fill(black); // image of fish
+        triangle(460, 705, 435, 695, 435, 715);
+        fill(black);
+        ellipse(485, 705, 60, 20);
+        fill(red);
+        ellipse(500, 705, 3);
     }
-
-    // CARD ON TABLE
-    // white card
-    fill(white);
-    quad(430, 680, 520, 680, 540, 730, 410, 730, 430, 730);
-
-    fill(black);
-    triangle(485, 705, 510, 695, 510, 715);
-    fill(black);
-    ellipse(460, 705, 60, 20);
-    fill(red);
-    ellipse(445, 705, 3);
-
 
     // image of fish on the card
     // if hover over the fish in the 'painting', the fish eyes on the card turns yellow or blue
@@ -222,7 +244,8 @@ function draw() {
         ellipse(800, 115, 5);
 
         fill(blue); // fish eye on card
-        ellipse(445, 705, 3);
+        ellipse(500, 705, 3);
+
     } else if ((mouseX > 640) && (mouseX < 920) &&
         (mouseY > 140) && (mouseY < 214)) {
         fill(blue); // top fish in painting
@@ -233,13 +256,18 @@ function draw() {
 
         fill(yellow); // bottom fish eye in painting
         ellipse(800, 265, 5);
+
+        fill(red); // pull
+        ellipse(circle1.x, circle1.y, circle1.radius);
+
     } else if ((mouseX > 640) && (mouseX < 920) &&
         (mouseY > 215) && (mouseY < 290)) {
         fill(yellow); // bottom fish eye in painting
         ellipse(800, 265, 5);
 
         fill(yellow); // fish eye on card
-        ellipse(445, 705, 3);
+        ellipse(500, 705, 3);
+
     } else { // otherwise nothing changes
     }
 
@@ -255,31 +283,4 @@ function draw() {
         fill(yellow);
         ellipse(700, 185, 5); // middle
     } else {}
-
 } // close function draw
-
-// click on card to change the background color back to light gray
-function mouseClicked() {
-    if ((mouseX > 430) && (mouseX < 540) &&
-        (mouseY > 680) && (mouseY < 730)) {
-        background(150);
-
-        fill(black);
-        ellipse(825, 115, 80, 30); //top
-        triangle(862.5, 115, 885, 100, 885, 130);
-
-        ellipse(725, 185, 80, 30);
-        triangle(762.5, 185, 785, 170, 785, 200); // middle
-
-        ellipse(825, 265, 80, 30);
-        triangle(862.5, 265, 885, 250, 885, 280); // bottom
-
-        // eyes of fish
-        fill(red);
-        ellipse(800, 115, 5); // top
-        ellipse(700, 185, 5); // middle
-        ellipse(800, 265, 5); // bottom
-    } else {
-        background(0, 0, 255, 85);
-    }
-} // close function mouseClicked
