@@ -7,9 +7,35 @@
     <style>
         body {
             margin: 0;
-            background-color: red;
-            font-family: 'Comfortaa', cursive;
+            background-color: yellow;
             font-family: 'Open Sans', sans-serif;
+            height: 1000px;
+        }
+
+        header {
+            height: 125px;
+            background-color: black;
+            color: white;
+            font-style: bold;
+            font-family: 'Comfortaa', cursive;
+            padding: 5px 15px 15px 55px;
+        }
+
+        h1,
+        h2 {
+            font-family: font-family: 'Comfortaa', cursive;
+        }
+
+        h1 {
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            padding-left: 55px;
+        }
+
+        div#container {
+            float: left;
         }
 
         #image {
@@ -18,24 +44,18 @@
             left: 1150px;
         }
 
-        header {
-            height: 150px;
-            background-color: black;
-            color: white;
-            font-style: bold;
-            font-family: 'Comfortaa', cursive;
-            padding: 5px 15px 15px 35px;
+        div#description {
+            background-color: yellow;
+            border-left: solid red;
+            margin: 50px 30px 0px 30px;
+            width: 925px;
+            padding: 2.5px 50px 0px 75px;
+            height: 300px;
         }
 
-        div#container {
-            float: left;
+        div#description p {
+            line-height: 150%;
         }
-
-        footer {
-            background-color: red;
-            height: 50px;
-        }
-
         /*div#description {
             font-size: 75%;
             margin-top: 52px;
@@ -45,6 +65,7 @@
             padding: 10px;
         }*/
     </style>
+
     <link href="https://fonts.googleapis.com/css?family=Comfortaa|Open+Sans" rel="stylesheet">
 
     <script src="libraries/p5.min.js"></script>
@@ -56,18 +77,34 @@
 <body>
     <header>
         <h1>Liz Bright</h1>
-        <h2>Creative Exploration on the Web<h2>
-        <h3>February 2018</h3>
+        <h2>Creative Exploration on the Web &nbsp  |  &nbsp Assignment 1: Bauhaus<h2>
     </header>
 
     <div id='container'>
     </div>
-    <div id='description'>
-    </div>
+
     <div id='image'>
         <img src="/images/lamp.jpg" alt="lamp" height="75%" width="75%">
     </div>
-    <footer></footer>
+
+    <div id='description'><p>For this assignment, there were two pieces that initially
+    caught my attention: <a href="https://www.harvardartmuseums.org/collections/object/223405">Wassily Kandinsky, Jocular Sounds, 1929</a>;
+    and the<a href="https://www.harvardartmuseums.org/collections/object/217377?position=6">Wilhelm Wagenfeld and Carl Jacob Jucker, Table Lamp, 1924</a>.
+
+    In Kandinsky's painting, the dynamic assymetry yet sense of balance, and the interplay of
+    the objects as unique shapes standing on their own captivated my imagination. Yet, there
+    was something about the lamp that kept drawing me back to it: the relationship of each unique shape
+    which when fused together formed a unique, and balanced piece.
+
+    My inclusion for the fish was admittedly a bit of an afterthought, painting by <a href="https://www.harvardartmuseums.org/collections/object/225520?position=27">Joan Stack, Fish</a>
+    was admittedly a bit of an afterthought, and was largely engendered by
+
+    <a href="https://www.harvardartmuseums.org/collections/object/223727?position=43">László Moholy-Nagy, 19</a>
+
+  </p>
+    </div>
+
+
 </body>
 
 </html>

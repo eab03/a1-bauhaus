@@ -1,13 +1,9 @@
-body {
-    margin: 0;
-    background-color: blue;
-}
-#image {
-    position: fixed;
-    top: 500px;
-    left: 1150px;
-}
-div#description {
+
+/*div#description {
+    font-size: 75%;
+    margin-top: 52px;
+    margin-right: 30px;
     float: right;
-    margin-right: 175px;
-}
+    background-color: grey;
+    padding: 10px;
+}*/

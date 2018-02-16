@@ -28,10 +28,11 @@ let ellipseSm2 = { // eye
 let diamondWidth = 15;
 let diamondHeight = 15;
 
+let r, g, b;
 
 function setup() {
     let canvas = createCanvas(1024, 768);
-    canvas.position(25, 200);
+    canvas.position(25, 650);
     canvas.parent('container');
     background(150);
     angleMode(DEGREES);
@@ -45,7 +46,7 @@ function draw() {
     let ltblue = color(198, 226, 227, 75);
     let blue = color(0, 0, 255);
 
-    let white = color(235);
+    let white = color(252,252,252);
     let silver = color("#C0C0C0");
     let dkgray = color(169, 169, 169);
     let gray = color(128, 128, 128);
@@ -224,7 +225,7 @@ function draw() {
             triangle2.x3 = 785;
             ellipse2.x = 725;
             ellipseSm2.x = 700;
-        } // end if statement for x position of swimming fish
+        } // end conditional statement for x position of swimming fish
 
         // FISH ON BLACK BACKGROUND
         fill(gray); // fish body and tail
@@ -234,11 +235,12 @@ function draw() {
         ellipse(700, 185, 5);
     } // end conditional statement for lamp animations
 
-    // ANIMATIONS RELATED TO HOVERING OVER THE PAINTING
-    /* if hover over the fish in the 'painting',
-     / the fish eyes on the card turns yellow or blue;
-     / if hover near middle fish on painting,
-     / the other fish eyes turn yellow or blue
+    // ANIMATIONS RELATED TO HOVERING NEAR THE LAMP
+    /*
+     /  if hover near the lamp, the entire background will turn black,
+     /  a few diamonds will turn yellow, one fish will move across page and
+     /  one in the upper right portion of the page will be redrawn in light grey
+     /  otherwise, fish will be drawn in black on a green background or 'painting'
     */
 
     if ((mouseX > 640) && (mouseX < 920) &&
@@ -271,7 +273,7 @@ function draw() {
         fill(yellow); // fish eye on card
         ellipse(500, 705, 3);
 
-    } else { // if not hovering over the painting nothing changes
+    } else {
     } // end conditional statements for painting animations
 
     // ANIMATIONS RELATED TO HOVERING OVER THE CARD ON TABLE
@@ -295,7 +297,6 @@ function draw() {
         fill(red);
         ellipse(circle1.x, circle1.y, circle1.radius);
     } // end conditional statment for card animations
-    
 } // close function draw
 
 // ADDITIONAL ANIMATION RELATED TO THE CARD ON TABLE
