@@ -32,7 +32,7 @@ let r, g, b;
 
 function setup() {
     let canvas = createCanvas(1024, 768);
-    canvas.position(25, 750);
+    canvas.position(15, 250);
     canvas.parent('container');
     background(150);
     angleMode(DEGREES);

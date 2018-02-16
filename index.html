@@ -4,120 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
-    <style>
-        body {
-            margin: 0;
-            background-color: yellow;
-            font-family: 'Open Sans', sans-serif;
-            height: 1100px;
-        }
-
-        header {
-            height: 125px;
-            background-color: black;
-            color: white;
-            font-style: bold;
-            font-family: 'Comfortaa', cursive;
-            padding: 5px 15px 15px 55px;
-        }
-
-        h1,
-        h2,
-        h3 {
-            font-family: font-family: 'Comfortaa', cursive;
-        }
-
-        h1 {
-            padding-bottom: 10px;
-        }
-
-        h2 {
-            padding-left: 55px;
-            overflow: hidden;
-        }
-
-        h3 {
-            font-size: 200%;
-            font-weight: bold;
-            margin-left: 110px;
-        }
-
-        a:link,
-        a:visited,
-        a:hover,
-        a:active {
-            color: blue;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        a:link {
-            color: blue;
-        }
-
-        a:visited {
-            color: green;
-        }
-
-        a:hover {
-            color: red;
-        }
-
-        a:active {
-            color: blue;
-        }
-
-        .images a:link, a:visited, a:hover, a:active {
-            color: black;
-        }
-
-        div#container {
-            float: left;
-        }
-
-        #image1 {
-            position: fixed;
-            top: 200px;
-            left: 1150px;
-        }
-
-        #image2 {
-            position: fixed;
-            top: 500px;
-            left: 1150px;
-        }
-
-        div#description {
-            background-color: yellow;
-            border-left: 3px solid red;
-            margin: 50px 30px 0px 60px;
-            width: 925px;
-            padding: 0px 50px 0px 50px;
-            height: 460px;
-        }
-
-        div#description p {
-            line-height: 150%;
-        }
-
-        div#images {
-            width: 400px;
-        }
-
-        .images figcaption {
-            font-size: 82.5%;
-            padding-left: 5px;
-            font-weight: bold;
-        }
-
-        div#container {
-            padding-bottom: 15px;
-        }
-
-    </style>
-
+    <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa|Open+Sans" rel="stylesheet">
-
     <script src="libraries/p5.min.js"></script>
     <script src="libraries/p5.sound.min.js"></script>
     <script src="sketch.js"></script>
@@ -131,54 +19,59 @@
     </header>
 
     <div class="images">
-    <div id='image1'>
-        <a href="https://www.harvardartmuseums.org/collections/object/225520?position=27">
-            <img src="/images/fish.jpg" alt="fish" height="75%" width="75%">
-            <figcaption>Joan Stack, Fish</figcaption></a>
-    </div>
+        <div id='image1'>
+            <a href="https://www.harvardartmuseums.org/collections/object/225520?position=27">
+                <img src="/images/fish.jpg" alt="fish" height="75%" width="75%">
+                <figcaption>Joan Stack, Fish</figcaption></a>
+        </div><!--close div image1-->
 
-    <div id='image2'>
-        <a href="https://www.harvardartmuseums.org/collections/object/217377?position=6">
-            <img src="/images/lamp.jpg" alt="lamp" height="75%" width="75%">
+        <div id='image2'>
+            <a href="https://www.harvardartmuseums.org/collections/object/217377?position=6">
+                <img src="/images/lamp.jpg" alt="lamp" height="75%" width="75%">
 
-            <figcaption>Wilhelm Wagenfeld and Carl <br>Jacob Jucker Table Lamp, 1924</figcaption></a>
-</div>
-    </div>
-
-    <div id='description'><p>In looking through the collection, two pieces initially caught my immediate attention:
-    <a href="https://www.harvardartmuseums.org/collections/object/223405">"Jocular Sounds"</a> (1929) by Wassily Kandinsky
-    and the <a href="https://www.harvardartmuseums.org/collections/object/217377?position=6">"Table Lamp"</a> (1924) by Wilhelm
-    Wagenfeld and Carl Jacob Jucker.
-    </a></p>
-
-    <p>What drew me to both was a sense of completeness there seemed to be to each piece.
-    Yet underlying that, the question I found myself coming back to was how the various
-    elements within each related to one another and in turn served to contribute to that
-    sense of wholeness I perceived—and then how to express that visually on the screen.</p>
-
-    <p>With that in mind, my process of sketching the elements however soon drifted from
-    inspired to a bit haphazard to dull. And the lamp simply looked like the
-    lamp (to an extent!), just on a table. So that was that. But SOMEHOW I needed to bring this thing to life!
-
-    <p>The basic observance that a lamp after all does turn on and off, and objects look differently
-    at night versus the day, led me to play around with that concept.
-    And the fish, well… they were a bit of an afterthought. While I had overlooked
-    <a href="https://www.harvardartmuseums.org/collections/object/225520?position=27">”Fish”</a>
-    by Joan Stack at first, what I liked about it was that they were creatures that could be animated,
-    and the diamonds were fun as well. I also have a bit of distrust of fish, and find them
-    cool but creepy!</p>
-
-    <p>On the technical side, some the animations were a bit challenging-—especially when shifting the
-    backgrounds and adding new elements to the piece I had not planned on, which entailed having to
-    reevaluate the order in which elements were drawn and to feel that some of the code had (has) to
-    be superfluous. The other thing too, is that I hope the animations are evident! I look forward to learning more about ways to approach this in the next few weeks!</p>
-
-    </div>
+                <figcaption>Wilhelm Wagenfeld and Carl <br>Jacob Jucker Table Lamp, 1924</figcaption></a>
+        </div><!--close div image2-->
+    </div><!--close div class images-->
 
 
-    <div id='title'><h3>TITLE: There's somethin' fishy happenin' here!<h3></div>
-    <div id='container'></div>
+    <div id='title'><h3>There's somethin' fishy happenin' here!<h3></div><!--close div title-->
+    <div id='container'></div><!--close div container-->
 
+    <div id='description'>
+        <p>In looking through the collection, two pieces initially
+        caught my immediate attention: <a href="https://www.harvardartmuseums.org/collections/object/223405">"Jocular Sounds"</a> (1929)
+        by Wassily Kandinsky and the <a href="https://www.harvardartmuseums.org/collections/object/217377?position=6">"Table Lamp"</a>
+        (1924) by Wilhelm Wagenfeld and Carl Jacob Jucker.</a></p>
+
+        <p>What I was most intrigued by was a sense of order and completeness each piece seemed to emulate.
+        In musing over this a little more (and trying to decide which one to choose!), the question I
+        found myself coming back to was how the various elements within each related to one another and in turn
+        served to contribute to that sense of wholeness I perceived, and then for the purpose of this project how
+        to express that visually on the screen.</p>
+
+        <p>With that challenge in mind, I enthusiastically set out to sketch the lamp. However my attempt soon drifted from
+        quasi-inspired to a bit haphazard to dull. And the lamp simply looked like the lamp (to an extent!)
+        just sitting there on a table. Very exciting and original.</p>
+
+        <p>Feeling distressed, SOMEHOW I needed to bring this thing to life! While perhaps seemingly basic observations,
+        the concepts that a lamp does turn on and off and that objects look differently at night versus the day,
+        led me to test out some animations. It was a start. There was hope.</p>
+
+        <p>And the fish? They were a bit of an afterthought. While I had overlooked <a href="https://www.harvardartmuseums.org/collections/object/225520?position=27">”Fish”</a>
+        by Joan Stack at first, I was looking for something else to pull this project together. The color
+        palette was fun; the diamonds a unique shape to play with; and the fish, well... truth be told,
+        I find them a rather enigmatic and kind of creepy... but perfect candidates for animations as well.</p>
+
+        <p>So that is how this piece all came to be. It was a bit of a creative headache, but in the end I had fun
+        with it. On the technical side, some the animations were definitely a bit challenging-—especially when
+        shifting the backgrounds and adding new elements to the piece I had not planned on. This entailed in having to
+        continually reevaluate the order in which elements were drawn and to recognize that some of the code had (has)
+        to be superfluous. I look forward to learning more about ways to approach this in the next few weeks!</p>
+
+        <p>A few hints about the animations, as they may not be obvious (something else to work on!): the lamp and the fish
+        are good things to explore with the mouse... and if you click on the fish on the table, the lights will come back on!</p>
+
+    </div><!--close div description-->
 
 </body>
 
