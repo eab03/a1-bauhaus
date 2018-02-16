@@ -33,6 +33,7 @@
 
         h2 {
             padding-left: 55px;
+            overflow: hidden;
         }
 
         h3 {
@@ -41,11 +42,46 @@
             margin-left: 110px;
         }
 
+        a:link,
+        a:visited,
+        a:hover,
+        a:active {
+            color: blue;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        a:link {
+            color: blue;
+        }
+
+        a:visited {
+            color: green;
+        }
+
+        a:hover {
+            color: red;
+        }
+
+        a:active {
+            color: blue;
+        }
+
+        .images a:link, a:visited, a:hover, a:active {
+            color: black;
+        }
+
         div#container {
             float: left;
         }
 
-        #image {
+        #image1 {
+            position: fixed;
+            top: 200px;
+            left: 1150px;
+        }
+
+        #image2 {
             position: fixed;
             top: 500px;
             left: 1150px;
@@ -63,14 +99,21 @@
         div#description p {
             line-height: 150%;
         }
-        /*div#description {
-            font-size: 75%;
-            margin-top: 52px;
-            margin-right: 30px;
-            float: right;
-            background-color: grey;
-            padding: 10px;
-        }*/
+
+        div#images {
+            width: 400px;
+        }
+
+        .images figcaption {
+            font-size: 82.5%;
+            padding-left: 5px;
+            font-weight: bold;
+        }
+
+        div#container {
+            padding-bottom: 15px;
+        }
+
     </style>
 
     <link href="https://fonts.googleapis.com/css?family=Comfortaa|Open+Sans" rel="stylesheet">
@@ -87,13 +130,24 @@
         <h2>Creative Exploration on the Web &nbsp  |  &nbsp Assignment 1: Bauhaus<h2>
     </header>
 
-    <div id='image'>
-        <img src="/images/lamp.jpg" alt="lamp" height="75%" width="75%">
+    <div class="images">
+    <div id='image1'>
+        <a href="https://www.harvardartmuseums.org/collections/object/225520?position=27">
+            <img src="/images/fish.jpg" alt="fish" height="75%" width="75%">
+            <figcaption>Joan Stack, Fish</figcaption></a>
+    </div>
+
+    <div id='image2'>
+        <a href="https://www.harvardartmuseums.org/collections/object/217377?position=6">
+            <img src="/images/lamp.jpg" alt="lamp" height="75%" width="75%">
+
+            <figcaption>Wilhelm Wagenfeld and Carl <br>Jacob Jucker Table Lamp, 1924</figcaption></a>
+</div>
     </div>
 
     <div id='description'><p>In looking through the collection, two pieces initially caught my immediate attention:
-    <a href="https://www.harvardartmuseums.org/collections/object/223405">"Jocular Sounds" (1929) by Wassily Kandinsky (1929)</a>
-    and the <a href="https://www.harvardartmuseums.org/collections/object/217377?position=6">"Table Lamp" (1924) by Wilhelm
+    <a href="https://www.harvardartmuseums.org/collections/object/223405">"Jocular Sounds"</a> (1929) by Wassily Kandinsky
+    and the <a href="https://www.harvardartmuseums.org/collections/object/217377?position=6">"Table Lamp"</a> (1924) by Wilhelm
     Wagenfeld and Carl Jacob Jucker.
     </a></p>
 
@@ -124,6 +178,7 @@
 
     <div id='title'><h3>TITLE: There's somethin' fishy happenin' here!<h3></div>
     <div id='container'></div>
+
 
 </body>
 
