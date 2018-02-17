@@ -1,7 +1,8 @@
 body {
     background-color: yellow;
-    height: 1100px;
+    height: 1300px;
     margin: 0;
+    width: 100%;
 }
 
 header {
@@ -14,8 +15,7 @@ header {
     width: 100%;
 }
 
-h1,
-h2 {
+h1, h2 {
     padding-left: 25px;
     padding-bottom: 10px;
 }
@@ -23,7 +23,7 @@ h2 {
 h3 {
     color: red;
     font-family: 'Comfortaa', cursive;
-    font-size: 175%;
+    font-size: 200%;
     font-weight: bold;
     margin: 45px 0px 0px 215px;
 }
@@ -31,8 +31,8 @@ h3 {
 #description {
     background-color: rgb(232, 232, 232);
     border: 3px solid red;
-    height: 700px;
-    margin: 850px 50px 0px 12.5px;
+    height: 775px;
+    margin: 875px 50px 0px 12.5px;
     padding: 30px 20px 0px 75px;
     position: absolute;
     width: 925px;
@@ -44,10 +44,7 @@ h3 {
     padding-right: 50px;
 }
 
-#description a:link,
-a:visited,
-a:hover,
-a:active {
+#description a:link, a:visited, a:hover, a:active {
     font-weight: bold;
     text-decoration: none;
 }
@@ -68,31 +65,33 @@ a:active {
     color: blue;
 }
 
-.images a:link,
-a:visited,
-a:hover,
-a:active {
+.images a:link, a:visited, a:hover, a:active {
     color: black;
+    text-decoration: none;
 }
 
-.images figcaption {
-    font-size: 82.5%;
-    padding-left: 5px;
+figcaption {
+    color: red;
+    font-size: 75%;
     font-weight: bold;
+    padding: 2px 0px 0px 5px;
 }
 
-#images {
-    width: 400px;
+#image1, #image3 {
+    padding-right: 15px;
 }
 
 #image1 {
-    position: fixed;
-    top: 200px;
-    left: 1150px;
+    float: left;
 }
 
 #image2 {
-    position: fixed;
-    top: 500px;
-    left: 1150px;
+    float: right;
+    padding-left: 15px;
+    padding-bottom: 5px;
+    margin-right: 12px;
+}
+
+#image3 {
+    float: left;
 }
