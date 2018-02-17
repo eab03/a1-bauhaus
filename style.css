@@ -1,6 +1,5 @@
 body {
     background-color: yellow;
-    height: 1300px;
     margin: 0;
     width: 100%;
 }
@@ -28,13 +27,16 @@ h3 {
     margin: 45px 0px 0px 215px;
 }
 
+#container {
+    margin: 0;
+}
+
 #description {
     background-color: rgb(232, 232, 232);
     border: 3px solid red;
     height: 775px;
-    margin: 875px 50px 0px 12.5px;
+    margin: 1500px 50px -1000px 12.5px;
     padding: 30px 20px 0px 75px;
-    position: absolute;
     width: 925px;
 }
 
