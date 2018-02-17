@@ -24,7 +24,7 @@ h3 {
     font-family: 'Comfortaa', cursive;
     font-size: 200%;
     font-weight: bold;
-    margin: 45px 0px 0px 215px;
+    margin: 65px 0px 0px 215px;
 }
 
 #container {
@@ -35,7 +35,7 @@ h3 {
     background-color: rgb(232, 232, 232);
     border: 3px solid red;
     clear: all;
-    height: 775px;
+    height: 800px;
     margin: 900px 50px 0px 12.5px;
     padding: 30px 20px 0px 75px;
     width: 925px;
@@ -92,7 +92,7 @@ figcaption {
     float: right;
     padding-left: 15px;
     padding-bottom: 5px;
-    margin-right: 12px;
+    margin-right: 40px;
 }
 
 #image3 {
