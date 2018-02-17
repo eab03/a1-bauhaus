@@ -34,8 +34,9 @@ h3 {
 #description {
     background-color: rgb(232, 232, 232);
     border: 3px solid red;
+    clear: all;
     height: 775px;
-    margin: 1500px 50px -1000px 12.5px;
+    margin: 900px 50px 0px 12.5px;
     padding: 30px 20px 0px 75px;
     width: 925px;
 }
